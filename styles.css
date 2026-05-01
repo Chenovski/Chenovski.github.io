@@ -272,14 +272,16 @@ dd {
 }
 
 .cv-grid,
-.diversity-grid {
+.diversity-grid,
+.service-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2.4rem 3rem;
 }
 
 .cv-grid .cv-block,
-.diversity-grid section {
+.diversity-grid section,
+.service-grid section {
   margin-top: 0;
   padding-top: 1.1rem;
   border-top: 1px solid var(--rule);
@@ -459,7 +461,8 @@ address {
 
   .research-grid,
   .cv-grid,
-  .diversity-grid {
+  .diversity-grid,
+  .service-grid {
     grid-template-columns: 1fr;
   }
 
