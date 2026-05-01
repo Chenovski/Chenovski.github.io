@@ -5,7 +5,8 @@ Static GitHub Pages site rebuilt from the WordPress export
 
 ## Files
 
-- `index.html` contains the inherited site content.
+- `index.html` is the research/home page.
+- `cv.html`, `teaching.html`, `service.html`, and `contact.html` are separate section pages.
 - `styles.css` defines the minimalist academic visual system.
 - `assets/cjh_logo_stamp.png` is the exported personal stamp asset.
 - `.nojekyll` keeps GitHub Pages from applying Jekyll processing.
