@@ -163,7 +163,6 @@ h1 small {
   font-size: clamp(1rem, 2vw, 1.35rem);
   font-weight: 400;
   letter-spacing: 0.06em;
-  font-variant: uppercase;
   vertical-align: baseline;
 }
 
