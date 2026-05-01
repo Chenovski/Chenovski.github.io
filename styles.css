@@ -161,9 +161,9 @@ h1 small {
   color: var(--muted);
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: clamp(1rem, 2vw, 1.35rem);
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-variant: small-caps;
   vertical-align: baseline;
 }
 
@@ -379,6 +379,14 @@ dd {
 .tag-list li {
   padding-bottom: 0.15rem;
   border-bottom: 1px solid var(--rule);
+}
+
+.tag-list em {
+  color: var(--accent);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.6rem;
+  font-style: normal;
+  letter-spacing: 0.04em;
 }
 
 .contact-page {
