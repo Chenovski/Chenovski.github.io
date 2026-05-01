@@ -272,14 +272,14 @@ dd {
 }
 
 .cv-grid,
-.service-grid {
+.diversity-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2.4rem 3rem;
 }
 
 .cv-grid .cv-block,
-.service-grid section {
+.diversity-grid section {
   margin-top: 0;
   padding-top: 1.1rem;
   border-top: 1px solid var(--rule);
@@ -313,7 +313,7 @@ dd {
 .event-list li {
   display: grid;
   grid-template-columns: minmax(0, 1.8fr) minmax(10rem, 0.9fr) minmax(7rem, 0.55fr);
-  gap: 1rem;
+  gap: 2rem;
   padding: 0.68rem 0;
   border-bottom: 1px solid var(--rule-soft);
 }
@@ -459,7 +459,7 @@ address {
 
   .research-grid,
   .cv-grid,
-  .service-grid {
+  .diversity-grid {
     grid-template-columns: 1fr;
   }
 
