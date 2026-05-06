@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[NA] Intro to the Condition Number - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2022-01-06.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[NA] Intro to the Condition Number</h1>
+      <p><span class="post-cat">NA</span> <span class="post-date">Originally published 2022-01-06</span></p>
+      <div class="post-body">
+        <span style="font-weight: 400;">Our goal is to track </span><b>error propagation</b><span style="font-weight: 400;"> in a numerical algorithm. If we input x with an error, how large the error would the output y carry? Measuring these in the sense of relative errors, the concept “condition number” is exactly the </span><b>scaling</b><span style="font-weight: 400;"> of the error that goes through the system, i.e., how much the error would be amplified, or thankfully how much it would be dampened. Formally speaking, the condition number is </span><span style="text-decoration: underline;"><span style="font-weight: 400;">the change of relative error from inputs to outputs</span></span><span style="font-weight: 400;">. A good example of an ill-conditioned algorithm is the addition/subtraction operations in a floating machine.</span>
+<ul>
+ 	<li>1D function condition number</li>
+</ul>
+<span style="font-weight: 400;">1D to 1D case. How to understand the form <strong>xf’(x)/f(x)</strong> ? From the error analysis, we notice that numerator f’(x) comes from the </span><i><span style="font-weight: 400;">Taylor expansion</span></i><span style="font-weight: 400;"> of f(x+dx), numerator x comes from the construction of x relative error (RHS), while denominator f(x) comes from the construction of y relative error (LHS). Because of this origination, special cases just remove the zero term(s), e.g., x=0 then cond f(x) = f’(x)/f(x), y = 0 then cond f(x) = xf’(x), x=y=0 then cond f(x) = f’(x). Notice that we no longer use relative error in these special cases (it is simply impossible) and use absolute error instead, if one or more relative error is undefined.</span>
+<ul>
+ 	<li>General function condition number</li>
+</ul>
+<span style="font-weight: 400;">General mapping case. Similar works, <span style="text-decoration: underline;">x becomes xi, f’(x) becomes partial fj w.r.t partial xi evaluated at x, f(x) becomes fj(x)</span>, so basically just in a general form. Note that this is a general expression of the i-th row j-th column entry in a big matrix Gamma. We define our condition number by the matrix norm of this Gamma (so this gives us a lot of options).</span>
+
+<span style="font-weight: 400;">This is mathematically beautiful, and captures information about the error propagation. However, the price is inconvenient. Computation mathematicians are not devout believers for the beauty of math, they have to compromise on practical engineering works. Hence, an alternative option, but a widely used one, comes to us.</span>
+
+<span style="font-weight: 400;">So in the simplified version of condition number definition, <span style="text-decoration: underline;">x becomes the max norm of x, f’(x) becomes the max norm of the Jacobian matrix, f(x) becomes the max norm of f(x)</span>. It looks like we extract every piece from every single entry of the Gamma matrix out and rudely take their max norm. This way of definition will possibly miss some ill-conditioned situation, but this is the tradeoff of simplification.</span>
+<ul>
+ 	<li>Matrix condition number</li>
+</ul>
+<span style="font-weight: 400;">Now let’s turn to the matrix condition number. Solving a linear system, say Ax=b, b is the input and x is the output. Nothing special, this is just a special case of the general mapping situation, since now our function f is linear transformation A inverse. The Jacobian matrix is exactly the A inverse, but what about the rest parts? Here the most funny thing happens: numerator x corresponds to b which equals to Ax, while the guy on the bottom now is x, going with a norm on everyone (not necessarily be max norm, just an arbitrary one), this is exactly in the form of matrix norm (more precisely, bounded by the vector norm induced matrix norm). Coupled with the A inverse we just mentioned, the matrix condition number is defined to be <span style="text-decoration: underline;">norm A times norm A inverse </span>(so we can say they follow the same philosophy, but the definition of matrix condition number is not exactly derived from the definition of function condition number). Directly from the inequality of matrix norm, this condition number is bounded below by 1 (norm of identity, from A times A inverse) and equal to 1 if and only if A is identity matrix.</span>
+
+Note that this matrix condition number is independent of input b! This means no matter how large the error gets in with the input, the relative error of output would always obtain it with the same level of amplification. Simply because this is a special case, a linear problem with f(0)=0.
+
+<span style="font-weight: 400;">The end of the story goes with the example of the <a href="https://en.wikipedia.org/wiki/Hilbert_matrix">Hilbert matrix</a>. Its condition number soars exponentially w.r.t the dimension. This means large dimensional data input would be a disaster, like what we mentioned at the beginning, the system will amplify the input error on a crazy scale, making this system an ill-conditioned one.</span>
+<ul>
+ 	<li>Algorithm condition number</li>
+</ul>
+<span style="font-weight: 400;">The exact mathematical process is f, let the algorithm A be fA. We have an assumption that there exists a xA for each x s.t. fA(x) = f(xA), the closer , the more confidence. In fact, this is exactly the way we used to measure the condition number of an algorithm. The formal definition of a condition number of an algorithm is the relative error in xA normalized by machine epsilon. If the algorithm is well conditioned, the condition number would be close to 1, i.e., the distance between xA and x is around the machine epsilon times (the scaling of) the magnitude of x.</span>
+<ul>
+ 	<li>Error in the output</li>
+</ul>
+<span style="font-weight: 400;">So in sum, what is the error in the output? Check the relative error in f*(xA) normalized by machine epsilon, the value is around </span><b>cond(f) (1+cond(A))</b><span style="font-weight: 400;">, i.e., there are 2 sources of amplification: from the algorithm and from the function itself.</span>
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

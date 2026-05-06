@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[CA] Conditions at a Fixed Point for an Automorphism to be Identity - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-01-28.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[CA] Conditions at a Fixed Point for an Automorphism to be Identity</h1>
+      <p><span class="post-cat">CA</span> <span class="post-date">Originally published 2020-01-28</span></p>
+      <div class="post-body">
+        <em>cf. Greene Ch6 Problem #17</em>
+
+We mentioned the condition to be identity in <a href="../posts/ca-why-injectivity-requires-non-zero-derivative-at-1st-order.html" target="_blank" rel="noopener noreferrer">our previous post</a>. Now, for a self-conformal mapping on some domain (not necessarily SCD, so Riemann Mapping Theorem fails here), when it will be identity?
+
+The answer is setting requirement <strong>on a fixed point, say P, to let its derivative be 1</strong>.
+
+Why that works? We can see its Taylor expansion at P. The 0-order and 1st-order terms simplified together to be z, so we only need to show the rest higher order terms are exactly 0. We assume there exists a non-zero higher order term, say with coefficient a_k, then check f(f(z))'s k-th power term, which has coefficient 2a_k. Inductively, f^n's k-th power term will be 2^(n-1)a_k. Because they are all self-conformal maps on the same domain (bounded region), so they share the same Cauchy estimate on the coefficient of k-th power term, which is only related to k (not n). However, 2^(n-1)a_k is increasing by the increasing of n, deriving the contradiction.
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[CA] Montel Theorem proved by Classical Analysis - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-01-19.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[CA] Montel Theorem proved by Classical Analysis</h1>
+      <p><span class="post-cat">CA</span> <span class="post-date">Originally published 2020-01-19</span></p>
+      <div class="post-body">
+        <em>* cf. Note 2020.1.17 and Book Ch 6 Sec 5.</em>
+
+<em>This is the summary of the second proof of Montel. The proof is more like real analysis although used in complex analysis, as we will use Bolzano-Weierstrass accumulative point theorem and Heine-Borel finite covering theorem, which both are classical theorems in real analysis.</em>
+
+We start with an arbitrary fixed sequence, gonna show it has subsequence converges normally. As the context is on complex plane (which has the structure of finite Cartesian product of real line), we can find a set of countably many points dense in the domain. Then for the first point in this set, we can find a subsequence of functions which convergent at that point, by Bolzano-Weierstrass under the condition of "uniformly bounded" in Montel. Then, the same process for second point, picking a sub-subsequence, etc. Finally we would list them from top all the way down to the bottom and taking their diagonal to form a new subsequence (the same trick used in the first proof by Ascoli-Arzela Thm). This new subsequence has the property of convergent pointwise on that countably dense set.
+
+Leave that new subsequence aside, let's take a look at the topological structure of the domain. Creating small disc for each point in that countably dense set with proper radius (we can say delta here, will determine its exact relation with epsilon later). By Heine-Borel, this open cover has finite subcover. Finiteness is a good stuff. Every point on the domain must belong to one of those finite subcover, so that its distance with the center point is less than that delta.
+
+With all those preparation done well, let's prove that new subsequence of functions is a Cauchy sequence (so convergent). We use the splitting trick in real analysis to separate the difference of function 1 and 2 values at some checked point to be the sum of three differences: function 1 at checked point and at the center point; function 1 and 2 at the center point; function 2 at the center point and at checked point. Head and tail are small confining by radius delta, middle one is also small as new subsequence of functions converges (so it also has Cauchy property). Then we done.
+
+&nbsp;
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

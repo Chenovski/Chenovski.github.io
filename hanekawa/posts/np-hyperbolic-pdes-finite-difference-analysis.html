@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[NP] Hyperbolic PDEs Finite Difference Analysis - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-04-15.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[NP] Hyperbolic PDEs Finite Difference Analysis</h1>
+      <p><span class="post-cat">NP</span> <span class="post-date">Originally published 2020-04-15</span></p>
+      <div class="post-body">
+        For a finite difference scheme, like FTFS, FTBS, FTCS, etc., we are interested in its convergence situation. Convergence of a scheme means convergence of its error w.r.t a proper norm, where the error is the gap between computed solution and exact solution. In that sense, checking error is not that straightforward in practice, as the exact solution is usually unknown, except the cases where we analyzed the performance of a designed numerical scheme with a given (known) PDE. Hence, by releasing the requirement, that's turn to consistence analysis instead of error analysis.
+
+What's consistence? While we said error is measuring the gap of solutions, consistence is measuring the gap of PDE operators. In FDM, we used a discrete operator to simulate the original continuous operator, and we need to check how well our simulation is. For sure, likewise, a proper operator norm can be used here. But for more explicit saying, we can test the gap of 2 operators by going through all smooth functions. Moreover, if the solution is given for a well-posed hyperbolic PDE, then we can directly use it, since the solution should be unique for that problem. So that's the second way, say, apply numerical (discrete) operator on the exact (continuous) solution, to see how well it fits. Actually, the more formal way to say this is the following: checking the different performance of numerical operator and PDE operator, by testing the exact solution (which is residual, or discretization error). For homogeneous problem, the latter one will annihilate the exact solution. For inhomogeneous problem, we can just replace the PDE operator by residual operator, and test it with its corresponding numerical scheme. But the inhomogeneous term is always known to us, so that way is exactly the same as our previous statement.
+
+As we can see, the consistency is easy to check as the residual is easy to compute. But what's the price for that? In FDM, consistence is a necessary condition of convergence, but it is definitely not sufficient enough. e.g. FTFS scheme can be proved as consistence, but it is not convergence in general. According to Lax-Richtmyer Theorem, convergence is equivalent to consistence + stable, so now, let's turn to stability. To think about this in a intuitive way, for the solution of wave equation at a fixed point on arbitrary time step, we always can trace back to some initial data along the characteristic. That means, the value can be pretty big, but it should be under control w.r.t time slot where we tracking back. In other words, it never blow up. Now, what is the stability? The concept of stability, roughly speaking, is the property that the size of the solution can always be bounded by a scaling of its corresponding initial data, and that scale only depends on time T. The "size" here should be measured by a proper norm as before. With the Lax-Richtmyer Theorem, in order to check the convergence of a scheme, which is a difficult task, we can check the consistency and stability instead.
+
+The concept of explicit scheme, which means we compute the next time step solution by only using previous time steps info, cares nothing about spatial step order. Only one preceding step used, then we called it one step method, and named it by multi-step method otherwise. A very fundamental result here considering explicit methods is the Courant-Friedrichs-Lewy theory. These three mathematicans provided a necessary condition (in many cases this is also sufficient) for the stability of explicit finite difference schemes on hyperbolic PDEs, and that "CFL condition" can be analyzed in several different ways including Fourier analysis, Von Neumann analysis, etc. From the analysis of generalized explicit numerical scheme, we concluded that the numerical domain of dependence must contain the exact solution's domain of dependence, otherwise the numerical scheme would not use enough initial data, which results in a gap. The initial data in this gap fails to converge to the correct result. The background of this phenomenon is that the numerical speed of propagation should be faster than the physical speed of propagation of wave, in order to be a stable scheme. Also, Courant, Friedrichs and Lewy derived another very important result: there are no unconditionally explicit FDM for hyperbolic equations. That means all those schemes can achieve stable only if equipped with some additional conditions, so there are no any unconditionally convergent FDM for hyperbolic equation as well. That is exactly the price of explicit, which make those schemes easy to be coded. Now, what about implicit scheme? It depends on the sign of the coefficient of ux as well as the forward space / backward space, e.g. for a&gt;0 wave equation, the backward space scheme is unconditionally stable. We can analyze them case by case through energy estimate.
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

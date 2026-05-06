@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[CA] Conformal Maps on SCD are Determined Simply by 2-point-case - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-01-28.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[CA] Conformal Maps on SCD are Determined Simply by 2-point-case</h1>
+      <p><span class="post-cat">CA</span> <span class="post-date">Originally published 2020-01-28</span></p>
+      <div class="post-body">
+        <em>cf. Greene Ch6 Problem #12</em>
+
+By Riemann Mapping Theorem, any SCD (Simply Connected Domain) is conformally equivalent to the unit disc. So this problem can be considered for automorphisms on the unit disc, by the composition of original conformal map with a conformal map derived from RMT as well as its inverse.
+
+Now, on the unit disc, assume we have automorphisms f and g satisfy f(P) = g(P) and f(Q) = g(Q) for distinct P and Q, so we can compose f with g-inverse (or g with f-inverse, etc.), creating a new automorphism on the unit disc, let's say, h. We know h(P) = P and h(Q) = Q.
+
+Then, we can easily find a Mobius transform M (in details, w = -1, a = P) mapping P to 0 and 0 to P. Composing this transform and its inverse with h on both sides, the result, say phi, is an automorphism on the unit disc which maps 0 to 0. Then we have a good property waiting for phi, that is, phi should be in the form of wz. On the other hand, M(Q) was mapped to M(Q) itself by phi. Because P and Q are distinct, M(Q) is non-zero, hence w = 1, i.e. phi(z) = z, phi = id.
+
+Track all the way back to f = g. We done.
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

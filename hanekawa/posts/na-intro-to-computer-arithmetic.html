@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[NA] Intro to Computer Arithmetic - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2022-01-10.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[NA] Intro to Computer Arithmetic</h1>
+      <p><span class="post-cat">NA</span> <span class="post-date">Originally published 2022-01-10</span></p>
+      <div class="post-body">
+        <span style="font-weight: 400;">Why do we need to care about computer arithmetic? Finite precision arithmetic can introduce unwanted errors. Number representation in computers is in a finite way: sign indicator, exponent, mantissa.</span>
+
+<span style="font-weight: 400;">Types of truncation: chopping and rounding (more accurate). Some basic concepts: roundoff error, significant digit, machine epsilon.</span>
+
+<span style="font-weight: 400;">Error propagation through both multiplication and division are just keeping epsilon level, while through addition/subtraction would possibly get into trouble. E.g., a-b, when a and b have the same sign and similar magnitudes. In this case, </span><span style="text-decoration: underline;"><span style="font-weight: 400;">the exact result of the operation (subtraction) is a very small number, which takes the denominator of the relative error</span></span><span style="font-weight: 400;">, while the numerator of the relative error is most likely in the level of machine epsilon. If their absolute difference is smaller than machine epsilon, the relative error would be a large number. (loss of accuracy)</span>
+
+<span style="font-weight: 400;">There are ways to avoid this, which requires a clever algorithm design. For the same example, a-b trouble, we can easily multiply (a+b)/(a+b) and hopefully a^2-b^2 would help. This was used in solving quadratic equations, if a root meets this trouble, we usually <span style="text-decoration: underline;">rationalize the numerator</span> (not denominator like usual algebra).</span>
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

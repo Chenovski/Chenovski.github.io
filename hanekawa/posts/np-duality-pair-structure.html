@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[NP] Duality Pair Structure - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-01-20.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[NP] Duality Pair Structure</h1>
+      <p><span class="post-cat">NP</span> <span class="post-date">Originally published 2020-01-20</span></p>
+      <div class="post-body">
+        Background:
+<ul>
+ 	<li>2 kinds of spaces: Banach space is the complete normed space, Hilbert space is the complete inner product space. As a norm can be induced by a given inner product, Hilbert space is a higher-level (more sophisticated) vector space.</li>
+ 	<li>2 kinds of functionals: Linear functional and bounded linear functional. The latter one is equivalent to continuous linear functional. Types of operators work as an analogue to this. The operator norm is defined to be the maximal length of image it can map from unit vector.</li>
+ 	<li>Transpose of operator T (from U to V): defined to be an operator mapping a V-dual functional to a U-dual function by connecting (composing) T.</li>
+ 	<li>4 theorems in functional analysis: (<a href="https://en.wikipedia.org/wiki/Hahn%E2%80%93Banach_theorem">Hahn-Banach</a>) Dual space of a (normed linear) subspace can be extended to the dual space of the big one, preserving the norm. (<a href="https://en.wikipedia.org/wiki/Closed_range_theorem">Closed Range Theorem</a>) mensioned in details in another post. (<a href="https://en.wikipedia.org/wiki/Closed_graph_theorem">Closed Graph Theorem</a>) A linear operator connecting 2 Banach spaces is continuous (bounded) iff its graph is closed in the product space. (<a href="https://en.wikipedia.org/wiki/Open_mapping_theorem_(functional_analysis)">Open Mapping Theorem</a>) A surjective continuous linear operator is an open mapping (means map open set to open set, while the continuous condition only ensure the preimage of open set is open, the additional 'surjective' condition achieve more).</li>
+</ul>
+Why we need the duality pair and how it works?
+
+We know a truth: better space, better property. Hilbert space has the better structure than Banach space, because we have no “inner product” concept in the latter space. However, duality pair provides a similar structure: T*f(u) = &lt;T*f,u&gt; = &lt;f,Tu&gt; = f(Tu).
+
+Let's start from finding the connection between inner product and linear functional. Intuitively, what's the definition of inner product? Considering the simplest vector spece, a finite dimensional Euclidean space, under a given basis, inner product of 2 vectors is a scalar value, which equals to the sum of the products of each component of vectors. Another question, what's a linear functional on that good space? Mapping a vector to a scalar value. By Riesz representation theorem, linear functional acting on a vector works as inner product of that vector with a another fixed vector, which is the "representation" of our linear functional. Conversely, an inner product structure can be "represented" by the action of a linear functional. Notes that this structure is not so rigorous as inner product, so we definitely can not say inner product is "induced" by linear functional.
+
+One advantage is that dual spaces are usually Banach (as long as scalar field is Banach, e.g. R, C, etc., no matter the original normed space is Banach or not) so it has better property comparing with the original normed space.
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

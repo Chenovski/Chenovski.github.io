@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[NP] Topics about Hyperbolic PDEs from Wave Propagation - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-04-03.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[NP] Topics about Hyperbolic PDEs from Wave Propagation</h1>
+      <p><span class="post-cat">NP</span> <span class="post-date">Originally published 2020-04-03</span></p>
+      <div class="post-body">
+        <ul>
+ 	<li><strong>Overview</strong></li>
+</ul>
+For hyperbolic PDEs, we mainly focus on variables in 2 aspects: space x (n dimensional in general) and time t (always in 1 dimension). Apart from traditional boundary conditions posted, we also need to consider initial condition as t was introduced. Another thing we need to mention before we start our journey is the consideration of t-x plane. Notes here time t is not really a dependent variable of space location x, so the dot on this plane has no 'function value' meaning. Think about a lie down t-x plane, equipped with an extra perpendicular 'u axis' to represent the value of function, or solution, at certain point on the t-x plane, then the propagation of wave looks like check u-x multiple times in different time as a film.
+<ul>
+ 	<li><strong>Const Coefficient 1-D One Way Wave Equation</strong></li>
+</ul>
+The prototype of hyperbolic PDEs is a pretty simple problem called one way wave equation. The homogeneous case is ut + a ux = 0, and let's start with const coefficient a. It can be testified that <span style="text-decoration: underline">the solution of this PDE is just <strong>a shift of initial condition</strong></span>. The direction* and speed of wave propagation depend on the sign and the size of constant a respectively. In other words, if we fixed x - a t, which should be a straight line on the t-x plane, then <span style="text-decoration: underline">the function value of u also fixed through the whole line</span>, i.e. <span style="text-decoration: underline">we can trace back to initial condition u0 through this line and get the function value u on the whole line</span>. Thus, those lines (which represents const value on x - a t) on the t-x plane are called <strong>characteristics</strong>.
+
+For more general case, non-homogeneous equation with lower order term, the trick to solve them is "change of variable". As what we know in advance for the homogeneous one, we define <strong>tau = t</strong>, and <strong>w = x - a t</strong>. Then check the partial derivative, we can <span style="text-decoration: underline">turn the PDE into an ODE w.r.t variable tau</span>. The final step is just solve it and replace those original variables back into the expression of the solution.
+
+* the "direction" here means the slope of path, not really the direction. The propagation direction of wave should be consistent with the increasing direction of time axis, that is to say, <strong>it always goes upward</strong>. e.g. if a &gt; 0, then the slope of characteristic lines is 1/a &gt; 0, so propagation speed is a which is inverse of the slope, while the propagation direction is from left going up to right. For a &lt; 0, the slope of characteristic lines is 1/a &lt; 0, same speed a, with propagation direction from right going up to left. In short, it's impossible for a wave to propagate from left going down to right or from right going down to left on the t-x plane, by contrast, it's always going up, because <em>time is elapsing and never going back</em>.
+<ul>
+ 	<li><strong>Const Coefficient n-D Hyperbolic Equation System</strong></li>
+</ul>
+While for a PDE system, const coefficients mean const matrices. The reason we name the system as "hyperbolic" is that the coefficient matrix A in front of ux should be diagonalizable with real spectrum (see the whole category <a href="../posts/np-intro-links-for-numerical-pdes.html" target="_blank" rel="noopener noreferrer">here</a>). In this sense, we have matrix P with columns are normalized eigenvectors of A, used as the transformation. Now define new variable again, say <strong>v = P u</strong>, so <strong>u = P-1 v</strong>. Considering <span style="text-decoration: underline">the system w.r.t v and multiply both sides by P in the front, we get a nice posted hyperbolic PDE system, with each row represents a one way wave equation</span> shown in the previous section. Again, to solve them, just trace back one by one.
+<ul>
+ 	<li><strong>Variable Coefficient 1-D One Way Wave Equation</strong></li>
+</ul>
+Now, let's consider variable coefficient of ux instead of constant variable. The way to solve the PDE can be enlightened by the const coefficient case: still "change of variable". Set<span style="text-decoration: underline"> tau = t as usual, but keep w known this time</span>. Just let <strong>dx/dtau = a</strong> (actually the same as what we did in the one way wave equation case, but just more general here, the only difference is a: const/variable), and we can solve this ODE directly to get a relation between x and tau, which is in fact, between x and t (as tau = t). <span style="text-decoration: underline">This relation is exactly the <strong>characteristic</strong></span>, and in order to find the specific characteristic for our specific PDE, just use initial condition to trace back to get the value of that undeterminated const arised from the integration of ODE dx/dtau = a. In this variable coefficient case, characteristic is no longer be a straight line, it should be a curve on the t-x plane in general.
+<ul>
+ 	<li><strong>Variable Coefficient n-D Hyperbolic Equation System</strong></li>
+</ul>
+This process is just the combination of our preceding 2 sections. The additional thing we need to care about is the "uniform diagonalizable" for those variable matrices. Notes that this is not the practical method to do the problem, as ODE is often hard to solve.
+<ul>
+ 	<li><strong>Boundary Conditions</strong></li>
+</ul>
+Now considering PDE with both initial conditions and boundary conditions. <span style="text-decoration: underline">We called a PDE to be well posed if and only if it has an unique solution from given boundary conditions</span>, but how to arrange those information to avoid both undetermination and overdetermination? The answer is, <span style="text-decoration: underline">the number of requiring boundary conditions at certain boundary should agree with the number of incoming characteristics at that boundary</span>. The incoming characteristics for a boundary refer to those entering the domain through that boundary, and outgoing characteristics mean the other. For example, in the interval [0,1], waves from left going up to right are the incoming characteristics w.r.t boundary x = 0, while they are outgoing characteristics w.r.t boundary x = 1 as they are going outside the domain from x = 1. Hence, setting proper boundary condition as well as initial condtions is a very important task to make sure your PDE is well posed. For the risk of ill posedness, some additional things need to take into consideration, like overdetermination cases with the overlap of initial &amp; boundary conditions, they may not agree on the common region.
+
+&nbsp;
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

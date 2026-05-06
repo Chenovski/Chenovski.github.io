@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[NA] Basic Spectrum Methods - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-07-23.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[NA] Basic Spectrum Methods</h1>
+      <p><span class="post-cat">NA</span> <span class="post-date">Originally published 2020-07-23</span></p>
+      <div class="post-body">
+        <ul>
+ 	<li><strong>Standard Power Method</strong>:</li>
+</ul>
+Matrix iteration using infinity-norm. Need to normalize the vector everytime before next loop, and the (first) entry agrees with the infinity-norm is the approximation of eigenvalue with the largest magnitude (spectral radius of the matrix). Notice that this includes the sign.
+<ul>
+ 	<li><strong>Inverse Power Method</strong>:</li>
+</ul>
+Matrix iteration using infinity-norm. This matrix is not our original matrix A, instead, it's the inverse of A-qI, where we hope to find the eigenvalue closest to q. This method converges faster than the standard one, and also can be treated as a modified method from the standard one by making p be the approximation of the spectral radius, e.g. using Rayleigh quotient. The final result you get should be 1/(lambda-q), and the expensive inverse operation is unnecessary: we have multiple choices of iteration techniques (e.g. standard Gaussian elimination, Gaussian elimination with partial/scaled partial/complete pivoting strategies, Jacobi, Gauss-Seidel, SOR, etc.) to solve a linear system in each step.
+<ul>
+ 	<li><strong>Symmetric Power Method</strong>:</li>
+</ul>
+Matrix iteration using 2-norm. Special methods for special cases, symmetric power method converges faster than the standard one. It uses 2-norm instead of infinity-norm, and making full use of <a href="https://en.wikipedia.org/wiki/Rayleigh_quotient">Rayleigh quotient</a>, i.e. normalize the vector everytime before next loop, then use that unit vector to construct a quadratic form, which is the approximation of eigenvalue with the largest magnitude (spectral radius of the matrix). The sign of this eigenvalue mainly depends on the definite of our matrix.
+<ul>
+ 	<li><strong>Deflation Method</strong>:</li>
+</ul>
+This technique helps us to find out other eigenvalues inductively, i.e. given k known dominant eigenvalues, we can compute the k+1 th dominant eigenvalue. A - (sum of) lambda x^t v, where x is the vector s.t. x^t v be an unit vector. However, this method may get roundoff error blows up, so usually coupled with IPM.
+<ul>
+ 	<li><strong>QR Factorization</strong></li>
+</ul>
+This method is focusing on a class of more specialized matrices: tridiagonal matrices. Equipped with Householder method, we can also use QR factorization method to arbitrary symmetric matrices. Q represents an orthogonal matrix, while R represents an upper triangular matrix. Like we can do A1=Q1R1, then our A2:=R1Q1 and do factorization again for A2=Q2R2, etc. The sequence of {An} produced from this process is a sequence of similar matrices, with the larger n, the smaller magnitude of off-diagonal entries, and An approaches to the diagonalized A with diagonal entries approach to eigenvalues. The exact way to factorize A is using rotation matrices multiple times, and those matrices are orthogonal so their inverse are direct transpose.
+
+<em>* for MATH 105A Review, Ch 9</em>
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

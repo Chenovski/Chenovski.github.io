@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[CA] Arzel&#224;–Ascoli Theorem - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-01-19.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[CA] Arzel&#224;–Ascoli Theorem</h1>
+      <p><span class="post-cat">CA</span> <span class="post-date">Originally published 2020-01-19</span></p>
+      <div class="post-body">
+        <em>* cf. Note 2020.1.17 and Book Ch 6 Sec 5.</em>
+
+<a href="https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem" target="_blank" rel="noopener noreferrer">Ascoli-Arzela Theorem</a> used in the proof of <a href="https://en.wikipedia.org/wiki/Montel%27s_theorem" target="_blank" rel="noopener noreferrer">Montel Theorem</a>.
+
+Ascoli-Arzela said, for a family of functions, the property of <strong>uniformly bounded</strong> and <strong>equicontinuous</strong> is equivalent to (i.e. if and only if) <span style="text-decoration: underline">the existence of uniformly convergent subsequence for every sequence</span> in this family.
+
+As Ascoli-Arzela is stated under the condition of compactness, the underlined property would be naturally converted into <strong>normally convergence</strong> in complex analysis, while <em>uniformly bounded</em> coincides with the condition of Montel, <em>equicontinuity</em> can be reached by stronger condition <em>holomorphic</em>. Because of this stronger condition, Montel Thm is only one-way, as shown following:
+
+If a family of <strong>holomorphic</strong> functions are <strong>uniformly bounded</strong>, then this family is a <strong>normal family</strong>.
+
+The rest of proof of Montel after using Ascoli-Arzela has one obstacle: we have "for any compact set there exist subsequence" (Ascoli-Arzela), and want to show "exist subsequence there for any compact set" (Montel). In other words, subsequence of the former is found according to each compact set, but the latter one required subsequence works on any compact set. The way to tackle it is to form a sequence of compact set approaching to the domain from inside. The exact way is defining them by point on the disc of ascending radius as well as point with descending distance with domain's boundary. We then pick up the subsequence from the preceding subsequence on the preceding compact set, list them from top all the way down to the bottom, them pick up the diagonal functions to form a new subsequence for the very original one. And this guy is exactly the one converges on every compact set. So we done.
+
+According to E. Greene, there is another version of Montel Thm with weaker condtion, i.e. instead of requiring <strong>uniformly bounded</strong>, we actually only need <strong>bounded on every compact sets</strong>. The reason is obvious to see through the proof.
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

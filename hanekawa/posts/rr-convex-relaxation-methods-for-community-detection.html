@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[OPT] Convex Relaxation Methods for Community Detection - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-01-19.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[OPT] Convex Relaxation Methods for Community Detection</h1>
+      <p><span class="post-cat">OPT</span> <span class="post-date">Originally published 2020-01-19</span></p>
+      <div class="post-body">
+        Topics involved:
+
+Lagrange Multiplier, KKT condition
+Convex relaxation, dual analysis, primal analysis
+Community detection problem, random matrix, stochastic block model (SBM)
+Planted partition problem
+Chernoff’s inequality
+
+&nbsp;
+
+Part of Summary:
+
+Overall, this survey paper is an introduction of the outline of recent works about convex relaxation method used in the field of community detection. The related fields including optimization, probability, stochastic process, random matrix, dual analysis. Those works in mathematics and computer science are originally from planted partition problem.
+
+1.1 Stochastic Block Models
+
+the basic model we used for this topic is called SBM, a.k.a. Stochastic Block Model. Roughly speaking, here given a random graph with certain connectivity, and the general community detection problem under SBM is to estimate the unknown cluster structure (theoretically it can be derived by a mapping, here comes several related properties, e.g. strong/weak consistency, non-trivial recovery), and we found SBM has several key aspects shared with community detection problem in real world networks. Notes the differences between connectivity and cluster group, as well as what given (observed) and what we want to achieve. To introduce recent studies, we start with a simplified case (but can be extended easily), (p,q)-SBM setting, i.e. nodes in the same clusters are connected with the same probability p, whereas nodes in different clusters are connected with probability q.
+
+1.2 Convex Relaxation
+
+Convexification can be done is several ways, here we focus on convexifying mle (maximum likelihood estimators). We derived the likelihood function by summing the probability mass functions (dealing them with log). How to make it into an optimization problem? In real networks, individuals within the same communities are often more likely to be connected than those across different communities. So, we have , and we just need to maximize the likelihood under certain constrains. Then, by defining a tuning parameter (depending on p and q) , we change the form of the function into inner product form (here we use trace inner product instead of normal one). Then the convexification is turning those constrains into let partition matrix X be (1) non-negative (2) positive semi-definite (3) 1 on all diagonal entries. And we proved that this convexification can achieve strong consistency for estimating the community structure in section 2 by showing it satisfies KKT condition under the proper range of tuning parameter .
+
+2 Strong consistency via dual analysis
+
+Our goal in this section is to prove that the convex relaxation for the optimization problem we converted in 1.2 recovers the true partition matrix as optimal solution. To achieve this, we prove it satisfies KKT condition. Firstly, constructing , and using KKT condition to eliminate  such that we only need to determine the values of  and . Here, we use Chernoff’s inequality twice, deriving the range of tuning parameter  to guarantee KKT condition holds under high probability. Finally, we conclude that for the two-cluster model, there exist tuning parameter such that the ground truth partition matrix is the unique solution to the convex relaxation with high probability.
+
+4 Projective matrix based convex opt and weak assortativity
+
+Strong consistency of the opt problem requires the strong assortativity of connectivity probability matrix. (like strong-version diagonal domination) And it seems too strong. To consider weak assortativity, one way to achieve strong consistency requiring the same cluster sizes. That's too unrealistic. Another way is using change of variable to turn the problem into a relaxation without explicit dependence on the cluster sizes. Then under the certain condition (achieved by dual analysis) we can get the unique solution with high probability for the modified relaxation problem.
+
+<em>* editing in progress ...</em>
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

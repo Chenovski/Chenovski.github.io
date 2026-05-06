@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[NP] Bad Velocity Plotting from Navier-Stokes Direct FEM Solver - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-03-05.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[NP] Bad Velocity Plotting from Navier-Stokes Direct FEM Solver</h1>
+      <p><span class="post-cat">NP</span> <span class="post-date">Originally published 2020-03-05</span></p>
+      <div class="post-body">
+        <ul>
+ 	<li>March 5, 2020</li>
+</ul>
+<img class="alignnone wp-image-417" src="../assets/media/need-417.png" alt="" width="378" height="310" />
+
+as shown above, the plotting result looks obviously much worse than FDM multi-grid solver due to more complicated geometric structure FEM used, but it's just the very begining step tested result.
+<ul>
+ 	<li>Update: March 6, 2020</li>
+</ul>
+<img class="alignnone wp-image-423" src="../assets/media/need-423.png" alt="" width="380" height="277" />
+
+Yesterday I forgtot to add vertical part of velocity for div u = g on the step of assembling stiffness matrix. So it actually didn't work at that time. Anyway now it works well as FDM although with a bunch of holes, which can be fixed by interpolation through fine grid nodes.
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

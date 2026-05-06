@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[NA] Basic Approximation Theory - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2022-01-17.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[NA] Basic Approximation Theory</h1>
+      <p><span class="post-cat">NA</span> <span class="post-date">Originally published 2022-01-17</span></p>
+      <div class="post-body">
+        <ul>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">“Best” approximation function is based on the choice of norm.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Weierstrass approximation theory.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Existence and uniqueness of polynomial interpolation.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Natural basis interpretation: need to solve a linear system (matrix) which maybe ill-conditioned.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Lagrange interpolation: extra efforts to construct Lagrange polynomials but no matrix need to be solved (tradeoff).</span></li>
+ 	<li><span style="font-weight: 400;">Error of polynomial interpolant: = </span><b>ep_n(f) (1+Lambda_n) </b><span style="font-weight: 400;">(similar to output error in condition numbers, right?), where ep_n(f) is the error measurement of the best polynomial approximation (not necessarily the interpolant for sure!) and Lambda_n is Lebesgue constant (the max norm of Lebesgue function, which is the sum of absolute Lagrange polynomials). Note that Lambda_n is in the order of log(n), while ep_n(f) goes to 0 as n goes to infinity by Weierstrass, but the rate of convergence depends on the smoothness of the function f (more roughly speaking, we need to check the derivatives of f). So we can’t say anything about the convergence rate of polynomial interpolation error in general.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Error rate (error estimate) of polynomial interpolation (smaller than Taylor series approximation in general, since <span style="text-decoration: underline;">multiple points vs. single point</span>), and we should control the derivatives (smoothness) to get the error bounds.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Convergence of polynomial approximation (w.r.t the degree n) is guaranteed.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">The interpolation nodes can be smartly chosen to reduce the approximation error (comes from zeros of Chebyshev polynomials).</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Shortcoming: </span><b>adding a new interpolation point</b><span style="font-weight: 400;"> requires all the </span><span style="font-weight: 400;">Lagrange polynomials </span><span style="font-weight: 400;">to be </span><b>recomputed</b><span style="font-weight: 400;">.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Solution: </span><span style="font-weight: 400;">Newton form</span><span style="font-weight: 400;"> using Newton’s divided differences, which are defined recursively, working as the coefficients of the linear combination of the Newton form basis.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Useful tool: divided difference table.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Geometric intuition: the divided differences are like the secant lines which parallel to a tangent line in 1D, and in general they are like the Taylor expansion coefficients but more precise since using multiple points instead of single one.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Question: what if we match not only the function values, but also the </span><b>derivatives</b><span style="font-weight: 400;">?</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Answer: Hermite polynomials. </span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Overfitting: higher degree polynomials introduce more zeros, which means more oscillations. (“you couldn’t guarantee it wouldn’t look like this, run into this pathology.”)</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Solutions: (1) don’t interpolate all the data points, i.e., </span><b>approximation </b><span style="font-weight: 400;">instead of interpolation, (2) interpolate all data points, but not with a single polynomial, i.e., piecewise interpolation (spline).</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">1st (linear) and 3rd (cubic) degree polynomials work (spline), 2nd degree (quadratic) the number of unknowns does not match the number of equations, unless we add a boundary one, which is ambiguous since we are usually not sure which side we would like to contain.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Basic rule: number of </span><b>unknowns/coefficients</b><span style="font-weight: 400;"> should match the number of </span><b>conditions/equations</b><span style="font-weight: 400;">.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Cubic spline: 4n unknowns 4n-2 conditions, so we only need 2 more equations at 2 sides (boundaries).</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">2 standard conditions: </span><b>natural conditions</b><span style="font-weight: 400;"> (zero 2nd order) or </span><b>clamped conditions</b><span style="font-weight: 400;"> (given 1st order). They are corresponding to natural cubic splines and clamped cubic splines. Of course there are more than these 2.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">In the absence of any information about function, we could simply use natural splines.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">By carefully handling the coefficients and the consecutive width (knowns), there is a solvable linear system (although annoyingly large) containing (1) function values, (2) 1st order, (3) 2nd order, (4) boundary conditions.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Idea: substitute leading order coefficients d’s (unknown) and linear coefficients b’s (unknown) by quadratic coefficients c’s (unknown) and constant coefficients a’s (known, since they are exactly just function values at nodes). I.e., represent everything unknowns by c’s.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Method: make the linear coefficients left. Ax = b. A contains node width h’s, x contains quadratic coefficients c’s, b contains leading width h’s and leading order coefficients a’s. A is a diagonally dominant matrix, which indicates a unique solution since A is invertible.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">The </span><b>existence </b><span style="font-weight: 400;">and </span><b>uniqueness </b><span style="font-weight: 400;">of the solution are guaranteed in both natural cubic spline and clamped cubic spline cases.</span></li>
+ 	<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Natural cubic spline is the “</span><b>smoothest</b><span style="font-weight: 400;">” interpolation method.</span></li>
+</ul>
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[NP] Multi-phase PDEs Interface Model in Fluid Dynamics - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-03-31.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[NP] Multi-phase PDEs Interface Model in Fluid Dynamics</h1>
+      <p><span class="post-cat">NP</span> <span class="post-date">Originally published 2020-03-31</span></p>
+      <div class="post-body">
+        Diffuse Domain Method (DDM) was proposed in around 10 years ago. This numerical method can be used to solve PDEs in moving (stationary is better for sure) complex geometries, in Dirichlet / Neumann / Robin boundary condition.
+
+The idea of DDM is: (1) Reconsidering the problem into a larger and regular domain, that is, the domain becomes big enough to contain our original bad-shape domain. The boundary condition usually becomes easier during that process, e.g. 0-Dirichlet boundary condition. (2) Coupling with a phase-field function which works like characteristic function. The differences between these two are obvious: phase-field function is smooth, continuous, while characteristic function is discontinuous, jump-up style. In fact, phase-field function is used to smoothly approximate characteristic function with additional source terms to simulate original boundary conditions. It has been shown through the last decade that our DDM-reformulated PDE asymptotically converges to original PDE, as the width of diffusion interface layer tends to 0. The theoretical part so far is relatively complete.
+
+DDM was used in the study of 2-phase flow problem in the right next year after it being proposed. The idea is introducing a phase variable to characterize the different fluid regions. Sharpe interfaces are replaced by smoothness transition region (thin but non-zero thickness). Some additional info here like designing the governing equation by a kind of variational tech w.r.t free energy, or like advection diffusion equation satisfied order parameter field coupled with N-S like equation that mimic surface tension. Basically we consider those 2-phase problem under a simplified circumstance, e.g. densities and viscosities of 2 types of fluid are the same.
+
+Although the DDM was designed in 2009, the classical phase-field model was proposed at first in 70's, which was originally used to simulate density matched incompressible fluids. During the past 2 decades, the model has been extended to variable density components. However, some challenges also arised like unsatisfactory of Galilean invariance, local mass conservation or thermodynamically consistence, etc.
+
+Thanks to Prof. John Lowengrub and his group in UC Irvine for their great contributions in those fields of study.
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

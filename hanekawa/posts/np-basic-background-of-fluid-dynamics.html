@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[NP] Basic Background of Fluid Dynamics - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-01-22.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[NP] Basic Background of Fluid Dynamics</h1>
+      <p><span class="post-cat">NP</span> <span class="post-date">Originally published 2020-01-22</span></p>
+      <div class="post-body">
+        To understand Navier-Stokes equation, we need plenty of background knowledge from physics. Here are some easiest ones.
+
+Concepts:
+<ul>
+ 	<li><a href="https://en.wikipedia.org/wiki/Flux">Flux</a>: the amount of stuff travel through a surface.</li>
+ 	<li><a href="https://en.wikipedia.org/wiki/Divergence">Divergence</a>: measure how powerful the flux is in a field. Topological definition is the limit of surface integral around the given point devided by contained volume, with the volume shrinking to 0 towards that point. With a coordinate, divergence is the dot product of gradient operator with the vector field.</li>
+ 	<li><a href="https://en.wikipedia.org/wiki/Circulation_(fluid_dynamics)">Circulation</a>: the amount of stuff wind around a line.</li>
+ 	<li><a href="https://en.wikipedia.org/wiki/Curl_(mathematics)">Curl</a>: measure how powerful the circulation is in a field. Topological definition is the limit of line integral around the circle devided by surrounding area, where the area approching to 0 with the circle shrinking to its central line. With a coordinate, curl is the cross product of gradient operator with the vector field.</li>
+</ul>
+Theorems:
+<ul>
+ 	<li>Stokes theorem: The closed line integral of a vector field equals to the surface integral of the curl of this vector field on any surface surrounded by this closed line.</li>
+ 	<li>Green theorem: 2 dimensional version of Stokes theorem. Just set the 3rd component of the vector field to be 0.</li>
+ 	<li>Divergence theorem: The triple integral of the divergence of a vector field on a region equals to the surface integral of the vector field on the region's boundary.</li>
+ 	<li>Their relationship can be found <a href="https://en.wikipedia.org/wiki/Green%27s_theorem#Relationship_to_Stokes'_theorem">here</a>.</li>
+</ul>
+* <em>Those are only basic MATH 2E knowledge, i.e. multi-variable calculus.</em>
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

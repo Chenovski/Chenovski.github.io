@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[CA] Real Expansion under the Weakest Condition - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-02-09.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[CA] Real Expansion under the Weakest Condition</h1>
+      <p><span class="post-cat">CA</span> <span class="post-date">Originally published 2020-02-09</span></p>
+      <div class="post-body">
+        Background: for an entire function, if we know that its restriction on real line takes real value, we can extend its real analytic property on real line to the whole complex plane by the uniqueness of Taylor expansion. The question is, how far can we relax the condition "takes real value on real line"? The answer from Ziang Long is, "can be relaxed to be on a sequence of points, as long as they have an accumulative point".
+
+Outline: considering f = u + iv, and we just take a look at v. v is harmonic, so real analytic and takes 0 at every point from that sequence (as v represents imaginary part of f, and f takes real values on that sequence). Taking the subsequence from our original sequence as our first sequence, where this sequence approaches to the accumulative point. So here, the function values v are 0 evaluated at every point in our first sequence. Then for each 2 successive points in this sequence, we apply Rolle mean value theorem, to create our second sequence, where the first order derivatives v' are 0 evaluated at every point in this sequence as well. Then do it again, the recursive "n-th order derivatives are 0" property holds for each sequence we formed. Moreover, those sequences' limits are n-th order derivative of v. Hence, v has 0 at accumulative point for any order derivative. That means, the Taylor expansion of v at that accumulative point has all coefficients 0, so v is constantly 0. That is to say, f has 0 imaginary part so only takes real value on the whole line, which can be extended to the whole complex plane.
+
+<em>This work credits to my fellow PhD <a href="https://www.math.uci.edu/people/ziang-long">Ziang Long</a>, this is the 4th of his 3 most fancy skills in complex analysis.</em>
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[CA] Locating Holomorphic Zeros Using Jensen&#39;s Formula - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-06-15.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[CA] Locating Holomorphic Zeros Using Jensen&#39;s Formula</h1>
+      <p><span class="post-cat">CA</span> <span class="post-date">Originally published 2020-06-15</span></p>
+      <div class="post-body">
+        For holomorphic f on the unit disc, if 0 was mapped to 0, we would naturally consider about Schwartz Lemma. If 0 was mapped to alpha which is a nonzero in the unit disc, then for sure, we can again, try to call Schwartz (use Schwartz Pick lemma here), but why not turn to Jensen this time? As you already got the perfect initialization of <a href="https://en.wikipedia.org/wiki/Jensen%27s_formula">Jensen's formula</a>!
+
+Let's recall Jensen's formula before we get started. Jensen's formula comes from the Mean Value Principle of harmonic function, and also analogous to Residue theorem for holomorphic functions. If f is nonvanishing in the whole disc, then ln|f| is harmonic, so as an equivalent condition (sufficient and necessary), Mean Value Principle naturally holds. What if f has several zeros in the disc? Then ln|f|is not a typical harmonic function anymore, it's a subharmonic so MVP becomes an inequality. How to fill the gap to make it become an equality? Those missing information is  exactly the sum of ln|R/ai| on the left, where ai's are zeros of f in the disc centered at 0 with radius R.
+
+Now let's back to our problem: how to locate zeros? Considering a simplified case first, which can be extended easily: R＝1, i.e. unit disc. Then ln|f|should be non positive as the range of f confined in the unit disc. We get an inequality says that the product of the modulus of those zeros should be bigger than the modulus of alpha, just by moving terms and by the monotonicity of log function. On the other hand, all those numbers are smaller than 1, which means no zero's modulus allowed to be smaller than alpha's, otherwise their product must be smaller directly.
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>

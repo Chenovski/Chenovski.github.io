@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[NP] Fourier Analysis with Plancherel-Parseval Identity - Hanekawa</title>
+  <meta name="description" content="Original post from the personal archive, published 2020-04-14.">
+  <link rel="stylesheet" href="../styles.css?v=20260506">
+  <link rel="icon" href="../../assets/cjh_logo_stamp.png">
+</head>
+<body>
+  <header class="side-header">
+    <a class="side-brand" href="../index.html" aria-label="Hanekawa home">
+      <span class="sigil" aria-hidden="true">&#x7ffc;</span>
+      <span>hanekawa</span>
+    </a>
+    <nav class="side-nav" aria-label="Casual site navigation">
+      <a href="../index.html">Hanekawa</a>
+      <a class="active" href="../posts/index.html">Posts</a>
+      <a href="../gallery/index.html">Gallery</a>
+      <a href="../bjj/index.html">BJJ</a>
+      <a href="../lineage/index.html">Lineage</a>
+      <a href="../anime/index.html">Anime</a>
+      <a href="../resources/index.html">Resources</a>
+    </nav>
+  </header>
+  <main>
+    <article class="side-page post-page">
+      <p class="eyebrow">post</p>
+      <h1>[NP] Fourier Analysis with Plancherel-Parseval Identity</h1>
+      <p><span class="post-cat">NP</span> <span class="post-date">Originally published 2020-04-14</span></p>
+      <div class="post-body">
+        <ul>
+ 	<li><a href="https://en.wikipedia.org/wiki/Plancherel_theorem">Plancherel's Theorem</a></li>
+ 	<li><a href="https://en.wikipedia.org/wiki/Parseval%27s_theorem">Parseval's Theorem</a></li>
+</ul>
+How does Fourier transform work? Fourier transform is just reforming the shape of function. In some cases, it acts as a smoother, e.g. exp(-abs(x)). In the sense of wave propagation, Fourier transform is the superposition of waves with the amplitude equal to our plugin function. But what really make it become so useful, especially in the numerical analysis of PDE? A very important theoretical foundation is Plancherel Theorem, a.k.a Parseval Theorem, which shows that the norm of original function is equal to the norm of its Fourier transformation. With that relation, we can apply Fourier transform on stability analysis: instead of analyzing the original function, we focus on its Fourier transformation. As long as that one satisfies the stable condition, the original one would automatically gain the same result.
+
+A question here is, why it's easier? The most well-known case is that using the transformation to turn a differentiation operation (original func space) into a multiplication operation (Fourier trans space). If we used that on the hyperbolic equations, or more specifically, on one way wave equation, we then turn a multivariable PDE into a singlevariable ODE, which we can solve directly. Another case is Von Neumann analysis, where we put Fourier tranform into the analysis of stability of finite difference schemes. We then derive that after Fourier transform, the computed FDM hyperbolic solution can be inductively represented by the scaling of initial data. That scaling, depends on the time step, is called amplification factor, which includes all the info we need for the stability analysis. Hence, at the beginning of Von Neumann analysis, we wrote the Fourier transformed solution into inductive formula, tracking back to the initial data with the amplification factor. And then we just work on that factor.
+      </div>
+    </article>
+  </main>
+  <footer class="side-footer">
+    <span>quiet archive</span>
+    <a href="../../diversity.html">back to the formal site</a>
+  </footer>
+</body>
+</html>
