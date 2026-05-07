@@ -1,24 +1,30 @@
-# Jinghao Chen Academic Website
+# Jinghao Chen Website
 
-Static GitHub Pages site rebuilt from the WordPress export
-`cern-jinghaochen.WordPress.2025-12-17.xml`.
+Static GitHub Pages site published at:
 
-## Files
+https://chenovski.github.io/
 
-- `index.html` is the research/home page.
-- `cv.html`, `teaching.html`, `diversity.html`, and `contact.html` are separate section pages.
-- `styles.css` defines the minimalist academic visual system.
-- `assets/cjh_logo_stamp.png` is the exported personal stamp asset.
-- `.nojekyll` keeps GitHub Pages from applying Jekyll processing.
+Repository:
 
-## Publish on GitHub Pages
+https://github.com/Chenovski/Chenovski.github.io
 
-1. Push this repository to GitHub.
-2. In the repository settings, open **Pages**.
-3. Choose **Deploy from a branch**.
-4. Select the `main` branch and `/ (root)`.
-5. Save the settings.
+## Structure
 
-GitHub will publish the site at either `https://<username>.github.io/<repo>/`
-or, for a user site repository named `<username>.github.io`, at
-`https://<username>.github.io/`.
+- `index.html`, `cv.html`, `teaching.html`, `diversity.html`, `contact.html`: formal academic website.
+- `styles.css`: formal academic stylesheet.
+- `assets/cjh_logo_stamp.png`: formal favicon, brand mark, and homepage emblem.
+- `hanekawa/`: separate casual side channel with its own pages, stylesheet, posts archive, gallery, resources, BJJ notes, and vendored media.
+- `docs/WEBPAGE_HANDOFF.md`: current state and maintenance handoff.
+- `docs/NEXT_STEPS.md`: milestone-based future work.
+- `AGENTS.md`: instructions for future Codex sessions.
+
+## Tech Stack
+
+- Plain HTML and CSS.
+- No JavaScript runtime.
+- No package manager, framework, bundler, or build step.
+- GitHub Pages publishes from the `main` branch repository root.
+
+## Deployment
+
+Commit changes to `main` and push to `origin main`. GitHub Pages serves the repository root directly.

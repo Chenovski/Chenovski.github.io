@@ -2,58 +2,71 @@
 
 ## Project Type
 
-Static personal academic website for GitHub Pages.
+Static GitHub Pages site for Jinghao Chen.
+
+The repository contains two distinct sections:
+
+- Formal academic website at the repository root.
+- Casual personal side channel under `hanekawa/`.
 
 ## Tech Stack
 
 - Plain HTML and CSS.
 - No JavaScript runtime.
-- No package manager, build tool, framework, or bundler detected.
+- No package manager, build tool, framework, or bundler.
 - Published from the repository root on GitHub Pages.
 
-## Site Structure
+## Formal Site Structure
 
 - `index.html`: research/home page.
 - `cv.html`: CV page.
 - `teaching.html`: teaching page.
-- `diversity.html`: diversity/service page.
+- `diversity.html`: diversity/service page and the only formal-page link to the casual section.
 - `contact.html`: contact page.
-- `styles.css`: shared stylesheet.
-- `assets/cjh_logo_stamp.png`: favicon, brand mark, and homepage emblem.
-- `docs/WEBPAGE_HANDOFF.md`: concise handoff context.
-- `docs/NEXT_STEPS.md`: future milestone plan.
+- `styles.css`: formal site stylesheet.
+- `assets/cjh_logo_stamp.png`: formal favicon, brand mark, and homepage emblem.
 
-Each HTML page duplicates the shared header/nav/footer. Keep navigation links and active states synchronized across all pages.
+Keep the formal site minimalist and academic. Do not add the casual site to the formal main navigation.
+
+## Casual Site Structure
+
+- `hanekawa/index.html`: casual side-channel home page.
+- `hanekawa/styles.css`: casual section stylesheet.
+- `hanekawa/posts/index.html`: posts directory and reverse-chronological archive.
+- `hanekawa/posts/*.html`: 81 imported post pages.
+- `hanekawa/gallery/index.html`: merged gallery.
+- `hanekawa/bjj/index.html`: Brazilian Jiu-Jitsu cheatsheet.
+- `hanekawa/lineage/index.html`: math lineage page.
+- `hanekawa/anime/index.html`: anime recommendation page.
+- `hanekawa/resources/index.html`: resources page.
+- `hanekawa/assets/media/`: vendored media and document assets.
+
+The casual site has its own visual system: dark, low-profile, lightly stylized, and separate from the formal academic design.
 
 ## Coding Conventions
 
-- Use simple static HTML; avoid adding dependencies unless explicitly requested.
-- Keep content semantic: `header`, `nav`, `main`, `section`, lists, `address`, and descriptive links.
-- Use relative links for internal pages.
-- When `styles.css` changes, update the stylesheet query string on every HTML page, e.g. `styles.css?v=YYYYMMDD`, to avoid stale cache.
-
-## Styling Conventions
-
-- Preserve the minimalist academic style.
-- Use serif body typography, Garamond-style page titles, small uppercase section labels, thin divider rules, and restrained colors from `:root`.
-- Prefer grid/list layouts over cards or decorative blocks.
-- Keep pages readable on mobile; existing responsive breakpoint is `860px`.
+- Use simple static HTML and CSS.
+- Keep internal links relative.
+- Use explicit `index.html` links in the casual nav, e.g. `bjj/index.html`, because the site is often previewed directly from files.
+- Header/nav/footer markup is duplicated across both the formal pages and the casual pages; update all affected pages when changing shared navigation.
+- If `styles.css` changes, update the formal stylesheet query string on all formal HTML pages.
+- If `hanekawa/styles.css` changes and cache busting matters, update the casual stylesheet query string on all casual HTML pages.
 
 ## Accessibility Expectations
 
 - Maintain meaningful page titles and meta descriptions.
-- Keep nav available on every page.
-- Ensure links have descriptive text.
-- Decorative images should use empty alt text; meaningful linked images need alt text that describes the link purpose.
-- Inline SVG icons should remain `aria-hidden` when adjacent text provides the label.
+- Keep navigation available on every page.
+- Use descriptive link text.
+- Decorative images should have empty alt text; linked or meaningful images need useful alt text.
 
 ## Do Not Change Without Explicit Instruction
 
-- Published route names: `index.html`, `cv.html`, `teaching.html`, `diversity.html`, `contact.html`.
-- The GitHub Pages publishing model from `main` root.
-- The academic/minimal visual direction.
-- `assets/cjh_logo_stamp.png` usage across favicon, nav, and homepage identity.
-- External profile/contact links unless the user provides replacements.
+- Published formal route names: `index.html`, `cv.html`, `teaching.html`, `diversity.html`, `contact.html`.
+- GitHub Pages publishing from `main` branch root.
+- Formal academic visual direction.
+- The casual site’s separation from the formal navigation.
+- Vendored casual media paths under `hanekawa/assets/media/`.
+- External profile/contact links unless replacements are provided.
 
 ## End-of-Session Summary
 
@@ -63,4 +76,4 @@ Summarize:
 - User-facing behavior or content changed.
 - Validation actually performed.
 - Whether changes were committed/pushed.
-- Any remaining risks or follow-up work.
+- Remaining risks or follow-up work.
